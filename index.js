@@ -10,7 +10,10 @@ const app = express();
 require('dotenv').config() 
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: `${process.env.FRONTEND_URI}`,
+    credentials: true
+}));
 
 const port = process.env.PORT  || 5000
 
